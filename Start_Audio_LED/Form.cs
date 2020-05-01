@@ -221,7 +221,7 @@ namespace AudioClient_Form
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (tabControl1.Visible)
+            if (pictureBox1.Visible)
             {
                 Program.Client.GenerateLineSpectrum();
             }

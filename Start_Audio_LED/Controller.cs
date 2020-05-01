@@ -158,10 +158,6 @@ namespace AudioClient_Controller
             if (oldImage != null)
             {
                 oldImage.Dispose();
-                Console.WriteLine("DISPOSED::::");
-            } else
-            {
-                Console.WriteLine("NOPE!::::");
             }
 
         }
