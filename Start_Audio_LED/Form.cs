@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.IO.Ports;
 using AudioClient_Core;
 using ArduinoUploader;
+using System.Linq;
 
 namespace AudioClient_Form
 {
@@ -189,9 +190,12 @@ namespace AudioClient_Form
                     element.SelectionStart = element.TextLength;
                     element.ScrollToCaret();
 
-                    if (element.TextLength >= element.MaxLength)
-                    {
-                        element.Lines[0] = null;
+                    Console.WriteLine(element.Lines[0]);
+
+                    if (element.Lines.Length > 256) {
+                        String[] text = element.Text.Split('\n');
+                        text = text.Skip(1).ToArray();
+                        element.Text = string.Join("\n", text);
                     }
                 }
             }

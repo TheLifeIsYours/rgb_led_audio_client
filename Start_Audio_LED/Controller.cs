@@ -61,7 +61,11 @@ namespace AudioClient_Controller
                         //Add all values from buffer
                         foreach(int i in buffer)
                         {
-                            result += Math.Sqrt(buffer[i] * buffer[i]);
+                            //Cut off some of the higher and lower frequencies; 
+                            if (i > 40 && i < buffer.Length - 40)
+                            {
+                                result += Math.Sqrt(buffer[i] * buffer[i]);
+                            }
                         }
 
                         //Average the total buffer values
