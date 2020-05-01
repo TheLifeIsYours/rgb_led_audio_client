@@ -145,16 +145,25 @@ namespace AudioClient_Controller
         public void GenerateLineSpectrum()
         {
             var pictureBox = Program.Form.GetPictureBox();
-            Image image = pictureBox.Image;
-
+            var oldImage = pictureBox.Image;
             var newImage = _lineSpectrum.CreateSpectrumLine(pictureBox.Size, Color.Green, Color.Red, Color.Black, true);
 
-            if (newImage != null)
+            if(newImage == null)
             {
-                pictureBox.Image = newImage;
-                if (image != null)
-                    image.Dispose();
+                return;
             }
+
+            pictureBox.Image = newImage;
+
+            if (oldImage != null)
+            {
+                oldImage.Dispose();
+                Console.WriteLine("DISPOSED::::");
+            } else
+            {
+                Console.WriteLine("NOPE!::::");
+            }
+
         }
 
 

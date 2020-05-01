@@ -195,6 +195,7 @@ namespace AudioClient_Form
                     if (element.Lines.Length > 256) {
                         String[] text = element.Text.Split('\n');
                         text = text.Skip(1).ToArray();
+                        Console.WriteLine(text.Count());
                         element.Text = string.Join("\n", text);
                     }
                 }
